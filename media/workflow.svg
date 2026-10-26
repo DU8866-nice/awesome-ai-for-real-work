@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="236" viewBox="0 0 900 236" role="img" aria-labelledby="title desc">
+<title id="title">AI for Real Work</title><desc id="desc">Bring a task, choose an AI workflow, inspect the output.</desc>
+<rect width="900" height="236" rx="20" fill="#f0fdf4"/>
+<g fill="none" stroke="#0f766e" stroke-width="3"><path d="M58 54h94l24 24v107H58Z" fill="white"/><path d="M151 54v25h25M79 104h73M79 125h63M79 146h73"/><path d="M213 119h90m-15-12 15 12-15 12"/><path d="M563 119h90m-15-12 15 12-15 12"/></g>
+<rect x="342" y="48" width="189" height="141" rx="12" fill="#102a43"/>
+<g font-family="system-ui, sans-serif" text-anchor="middle"><text x="436" y="111" fill="white" font-size="35" font-weight="700">AI + TOOLS</text><text x="436" y="151" fill="#bce7dd" font-size="19">a task with a finish line</text></g>
+<path d="M697 54h143v131H697Z" fill="white" stroke="#0f766e" stroke-width="3"/><g stroke="#0f766e" stroke-width="3" fill="none"><path d="m713 91 6 7 12-16M741 91h75m-103 30 6 7 12-16M741 121h75m-103 30 6 7 12-16M741 151h57"/></g>
+<g font-family="system-ui, sans-serif" font-size="17" font-weight="650" fill="#102a43" text-anchor="middle"><text x="119" y="216">BRING A TASK</text><text x="436" y="216">CHOOSE A WORKFLOW</text><text x="769" y="216">CHECK THE OUTPUT</text></g>
+<circle cx="842" cy="57" r="18" fill="#ffb86b"/><path d="m834 57 5 5 10-11" stroke="#102a43" stroke-width="3" fill="none"/>
+</svg>
