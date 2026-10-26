@@ -1,0 +1,226 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "provenance": "Original fictional teaching material authored for this library. Expected values are human-defined answer keys, not actual AI run results.",
+  "cases": [
+    {
+      "id": "documents-to-answers",
+      "title": "Find an approved review interval and owner without inventing a budget",
+      "inputs": {
+        "as_of": "2026-10-23",
+        "documents": [
+          {
+            "docid": "doc-policy-01",
+            "title": "Pilot knowledge-library review policy",
+            "status": "approved",
+            "effective_from": "2026-10-01",
+            "text": "Approved policy for the fictional Aster pilot knowledge library. Review every knowledge-library entry every 30 days. Mira is the policy owner and maintains the review register. This policy does not specify a budget."
+          },
+          {
+            "docid": "doc-background-02",
+            "title": "Office lunch notes",
+            "status": "background",
+            "effective_from": null,
+            "text": "The cafeteria serves soup on Tuesdays. The office reading club meets near the window. These notes are unrelated to knowledge-library governance."
+          }
+        ],
+        "questions": [
+          { "id": "q-review-cycle", "question": "How many days are between required knowledge-library reviews?" },
+          { "id": "q-owner", "question": "Who owns the approved review policy?" },
+          { "id": "q-budget", "question": "What is the approved annual budget in USD?" }
+        ]
+      },
+      "expected": {
+        "answers": [
+          { "id": "q-review-cycle", "status": "supported", "value": 30, "source_ids": ["doc-policy-01"], "reviewed_docids": ["doc-policy-01", "doc-background-02"] },
+          { "id": "q-owner", "status": "supported", "value": "Mira", "source_ids": ["doc-policy-01"], "reviewed_docids": ["doc-policy-01", "doc-background-02"] },
+          { "id": "q-budget", "status": "insufficient_evidence", "value": null, "source_ids": [], "reviewed_docids": ["doc-policy-01", "doc-background-02"] }
+        ]
+      },
+      "review_checks": [
+        "The answer cites the policy's docid for both supported claims, not the unrelated lunch notes.",
+        "The unknown budget remains null; inspected document IDs explain the evidence boundary without pretending to support a number.",
+        "Human review confirms the actual cited passage and approval status. This text fixture does not check OCR or retrieval."
+      ]
+    },
+    {
+      "id": "meeting-to-actions",
+      "title": "Separate a commitment from a suggestion",
+      "inputs": {
+        "meeting_id": "meeting-aster-01",
+        "meeting_date": "2026-10-19",
+        "timezone": "UTC",
+        "speaker_names": "Names below are defined by this fictional transcript, not inferred from diarization labels.",
+        "segments": [
+          { "id": "seg-01", "start": "00:00:05", "speaker": "Mira", "text": "I will send the revised onboarding checklist by 2026-10-21." },
+          { "id": "seg-02", "start": "00:00:19", "speaker": "Jun", "text": "I will validate the export sample by 2026-10-22." },
+          { "id": "seg-03", "start": "00:00:35", "speaker": "Leo", "text": "Maybe we could build a dashboard. I am only suggesting it; we have not agreed an owner or a date." },
+          { "id": "seg-04", "start": "00:00:48", "speaker": "Mira", "text": "Keep the dashboard as a proposal for discussion. There is no commitment to build it yet." }
+        ]
+      },
+      "expected": {
+        "committed_actions": [
+          { "action": "Send the revised onboarding checklist", "owner": "Mira", "due_date": "2026-10-21", "source_segment_ids": ["seg-01"] },
+          { "action": "Validate the export sample", "owner": "Jun", "due_date": "2026-10-22", "source_segment_ids": ["seg-02"] }
+        ],
+        "proposals": [
+          { "action": "Build a dashboard", "owner": null, "due_date": null, "source_segment_ids": ["seg-03", "seg-04"] }
+        ]
+      },
+      "review_checks": [
+        "Exactly two commitments exist; speaker proximity does not turn Leo into a dashboard owner.",
+        "The proposal's owner and due_date stay null rather than being copied from another row or the meeting date.",
+        "Paraphrases may differ while preserving meaning. This fixture does not test audio recognition or real identity matching.",
+        "No extracted item authorizes sending a message or creating a task."
+      ]
+    },
+    {
+      "id": "browser-to-table",
+      "title": "Preserve an unknown price and row provenance",
+      "inputs": {
+        "source_mode": "provided fictional page text only; do not navigate to the .invalid URLs",
+        "pages": [
+          {
+            "id": "page-lumen-01",
+            "url": "https://lumen-desk.example.invalid/pricing",
+            "content": "Lumen Desk — a fictional shared planning tool. The Solo plan costs USD 12 per month, billed monthly. Includes one workspace."
+          },
+          {
+            "id": "page-harbor-02",
+            "url": "https://harbor-board.example.invalid/product",
+            "content": "Harbor Board — a fictional team checklist tool. Includes shared checklists and a read-only overview. Contact the team to discuss plans. No price is listed on this page."
+          }
+        ],
+        "fields": ["name", "price_usd_month", "source", "source_id"]
+      },
+      "expected": {
+        "rows": [
+          { "name": "Lumen Desk", "price_usd_month": 12, "source": "https://lumen-desk.example.invalid/pricing", "source_id": "page-lumen-01" },
+          { "name": "Harbor Board", "price_usd_month": null, "source": "https://harbor-board.example.invalid/product", "source_id": "page-harbor-02" }
+        ]
+      },
+      "review_checks": [
+        "There is one row per supplied page, with its exact source URL and source_id.",
+        "Unstated price is null, not zero, free, a quote from another product, or an inferred yearly conversion.",
+        "These are fictional page texts; passing this case does not establish real website navigation compatibility."
+      ]
+    },
+    {
+      "id": "weekly-report",
+      "title": "Calculate a weighted completion rate before narrating it",
+      "inputs": {
+        "grain": "one row per team and week; planned and done are item counts",
+        "rows": [
+          { "id": "row-w43-docs", "week": "W43", "team": "Docs", "planned": 10, "done": 8 },
+          { "id": "row-w43-ops", "week": "W43", "team": "Ops", "planned": 12, "done": 9 },
+          { "id": "row-w44-docs", "week": "W44", "team": "Docs", "planned": 12, "done": 10 },
+          { "id": "row-w44-ops", "week": "W44", "team": "Ops", "planned": 15, "done": 12 }
+        ],
+        "calculation_rules": {
+          "completion_rate_percent": "100 * sum(done) / sum(planned)",
+          "change_percentage_points": "current unrounded rate minus previous unrounded rate",
+          "display_decimals": 2,
+          "zero_planned_rate": null
+        }
+      },
+      "expected": {
+        "weeks": [
+          { "week": "W43", "planned": 22, "done": 17, "completion_rate_percent": 77.27, "formula": "100 * 17 / 22", "source_row_ids": ["row-w43-docs", "row-w43-ops"] },
+          { "week": "W44", "planned": 27, "done": 22, "completion_rate_percent": 81.48, "formula": "100 * 22 / 27", "source_row_ids": ["row-w44-docs", "row-w44-ops"] }
+        ],
+        "comparison": { "previous_week": "W43", "current_week": "W44", "change_percentage_points": 4.21, "direction": "increase" }
+      },
+      "review_checks": [
+        "All four rows are counted once, and each team-week combination is unique.",
+        "Rates are computed from summed counts rather than an unweighted average of team rates.",
+        "Use a numeric tolerance of 0.005 for displayed two-decimal metrics; label the difference as percentage points, not relative percent.",
+        "The rows do not explain why the rate changed or establish an AI productivity benefit."
+      ]
+    },
+    {
+      "id": "research-to-brief",
+      "title": "A newer proposal does not replace an approved rule",
+      "inputs": {
+        "as_of": "2026-10-23",
+        "question": "What acknowledgment time currently applies to the fictional Aster pilot support queue, and what change is proposed?",
+        "sources": [
+          {
+            "id": "src-approved-01",
+            "title": "Approved Aster support acknowledgment rule",
+            "issuer": "Fictional Aster pilot steering group",
+            "published_at": "2026-01-12",
+            "status": "approved",
+            "effective_from": "2026-02-01",
+            "text": "Approved rule: the Aster pilot support queue must acknowledge each new request within 2 hours. This rule remains effective until an approved replacement takes effect."
+          },
+          {
+            "id": "src-proposal-02",
+            "title": "Draft change for review",
+            "issuer": "Fictional Aster pilot working group",
+            "published_at": "2026-10-20",
+            "status": "proposal",
+            "effective_from": null,
+            "text": "Proposal only, not approved: change the acknowledgment window from 2 hours to 3 hours. Approval and an effective date are pending. This draft does not change the current rule."
+          }
+        ]
+      },
+      "expected": {
+        "as_of": "2026-10-23",
+        "current_rule": { "acknowledgment_hours": 2, "status": "approved", "effective_from": "2026-02-01", "source_ids": ["src-approved-01"] },
+        "proposed_changes": [
+          { "acknowledgment_hours": 3, "status": "proposal", "effective_from": null, "source_ids": ["src-proposal-02"] }
+        ],
+        "approved_replacement_found": false,
+        "source_ledger": [
+          { "id": "src-approved-01", "published_at": "2026-01-12", "status": "approved", "effective_from": "2026-02-01" },
+          { "id": "src-proposal-02", "published_at": "2026-10-20", "status": "proposal", "effective_from": null }
+        ]
+      },
+      "review_checks": [
+        "Current and proposed hours are distinct; recency is not treated as approval.",
+        "Each factual conclusion cites the source that actually supports it.",
+        "The reviewer checks publication date, effective date, and approval status individually.",
+        "This supplied-source exercise cannot establish whether other live sources exist."
+      ]
+    },
+    {
+      "id": "sources-to-slides",
+      "title": "Keep a six-slide pilot update inside its evidence",
+      "inputs": {
+        "audience": "Fictional Aster pilot steering group",
+        "max_slides": 6,
+        "facts": [
+          { "id": "fact-01", "text": "The fictional Aster pilot ran for 4 weeks." },
+          { "id": "fact-02", "text": "18 people participated in the pilot." },
+          { "id": "fact-03", "text": "The participating teams were Docs and Ops." },
+          { "id": "fact-04", "text": "The pilot explored document question answering and weekly reporting." },
+          { "id": "fact-05", "text": "12 participant interviews were completed." },
+          { "id": "fact-06", "text": "The next-phase decision is pending. No rollout has been approved." }
+        ]
+      },
+      "expected": {
+        "max_slides": 6,
+        "required_source_ids": ["fact-01", "fact-02", "fact-03", "fact-04", "fact-05", "fact-06"],
+        "numeric_facts": { "duration_weeks": 4, "participants": 18, "interviews_completed": 12 },
+        "rollout_status": "not_approved",
+        "next_phase_decision": "pending",
+        "reference_outline": [
+          { "title": "Pilot duration", "facts": [{ "text": "The pilot ran for 4 weeks.", "source_id": "fact-01" }] },
+          { "title": "Participation", "facts": [{ "text": "18 people participated.", "source_id": "fact-02" }] },
+          { "title": "Teams", "facts": [{ "text": "Docs and Ops participated.", "source_id": "fact-03" }] },
+          { "title": "Tasks explored", "facts": [{ "text": "Document question answering and weekly reporting were explored.", "source_id": "fact-04" }] },
+          { "title": "Interviews", "facts": [{ "text": "12 participant interviews were completed.", "source_id": "fact-05" }] },
+          { "title": "Next decision", "facts": [{ "text": "The next-phase decision is pending; no rollout is approved.", "source_id": "fact-06" }] }
+        ],
+        "unsupported_claim_categories": ["time savings", "ROI", "approved rollout", "participant satisfaction score"]
+      },
+      "review_checks": [
+        "Alternative outlines are allowed when they use at most six slides and cover all six facts with valid source IDs.",
+        "Check 4 weeks, 18 people, and 12 interviews exactly; do not infer a response rate or savings percentage.",
+        "Every factual statement on actual slides points to its source; a source label alone does not prove that the claim is faithful.",
+        "Inspect the exported deck for legibility, clipping, and editability. JSON outline checks cannot establish those properties.",
+        "No new outcome, quote, or approved rollout is invented."
+      ]
+    }
+  ]
+}
