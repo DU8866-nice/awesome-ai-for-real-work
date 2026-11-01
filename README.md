@@ -12,7 +12,7 @@
   <a href="contributing.md">Contributing</a>
 </p>
 
-A task-first collection of **30 AI projects across 9 categories**, with **6 workflow blueprints**, synthetic starter inputs and concrete output checks. Find a useful starting point for documents, meetings, browser tasks, research, reports and slides.
+A task-first collection of **31 AI projects across 9 categories**, with **6 workflow blueprints**, synthetic starter inputs and concrete output checks. Find a useful starting point for documents, meetings, browser tasks, research, reports and slides.
 
 Start with the job, then choose the tool. Entries distinguish desktop apps, visual builders and developer tools, and state the model or deployment preparation. Stars are a discovery signal, not evidence that a tool fits your task.
 
@@ -83,6 +83,7 @@ Each guide includes English and Chinese instructions, a reusable prompt, sample 
 - [Browser Use](https://github.com/browser-use/browser-use) - Use a language-model agent to navigate pages and perform browser tasks. `Developer / browser agent`. The library, hosted browser and hosted models are separate offerings. Start with public read-only extraction and a bounded output schema.
 - [Stagehand](https://github.com/browserbase/stagehand) - Combine browser actions and structured extraction in an application workflow. `Developer / SDK`. Requires programming and a model configuration; browser hosting depends on the deployment route. Validate extracted fields against the page.
 - [Skyvern](https://github.com/Skyvern-AI/skyvern) - Automate browser workflows using model-assisted page understanding and visual interaction. `Browser workflows / setup`. Configure a model and browser environment. Local/self-hosted and managed services differ; AGPL code terms apply to the selected edition.
+- [agent-qa](https://github.com/vostride/agent-qa) - Verify web, Android and iOS flows with memidex memory and evidence-gated self-improvement. `Developer / CLI + MCP`. Requires Node.js 24+ and model access; hosted inference costs are separate. Inspect step evidence and pass/fail verdicts. FSL-1.1-ALv2 restricts competing commercial offerings. [Docs](https://vostride.com/docs/agent-qa).
 
 ## Audio to Actions
 
@@ -105,11 +106,11 @@ Each guide includes English and Chinese instructions, a reusable prompt, sample 
 
 ## Selection and Review
 
-Reviewed **2026-10-26** against primary repository metadata and READMEs. Archived projects are excluded from the main list. See the [source review](docs/source-review.md) for dated star snapshots, upstream links, last-push timestamps and review limits, or use the [machine-readable catalog](docs/catalog.json).
+Base selection reviewed **2026-10-26**; agent-qa reviewed **2026-11-01**. Entries use primary repository metadata and READMEs. Archived projects are excluded from the main list. See the [source review](docs/source-review.md) for dated star snapshots, upstream links, last-push timestamps and review limits, or use the [machine-readable catalog](docs/catalog.json).
 
 Entries need a concrete task, primary documentation and an output a person can inspect. The collection includes open-source and source-available projects with additional conditions. **Application licenses, model-weight licenses, hosting and API charges are separate questions.** This list's CC0 dedication does not relicense upstream projects.
 
-This is an AI-assisted, documentation-reviewed collection. The 30 applications were not individually installed or runtime-tested for this edition, and the six blueprints are not end-to-end tested integrations. Synthetic fixtures and deterministic checks help you inspect results; they do not certify generated content. Read [contributing](contributing.md) to propose an addition or correct a claim.
+This is an AI-assisted, documentation-reviewed collection. The 31 applications were not individually installed or runtime-tested for this edition, and the six blueprints are not end-to-end tested integrations. Synthetic fixtures and deterministic checks help you inspect results; they do not certify generated content. Read [contributing](contributing.md) to propose an addition or correct a claim.
 
 ## Related
 

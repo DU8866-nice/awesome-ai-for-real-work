@@ -2,6 +2,8 @@
 
 Reviewed: **2026-10-26**. Counts are a dated GitHub API snapshot, not a live ranking or endorsement. / 星标为当日 API 快照，不代表效果排名。
 
+Added review: **agent-qa — 2026-11-01**. Original entries retain their 2026-10-26 snapshot dates. / 新增核查：**agent-qa — 2026-11-01**。原有条目保留 2026-10-26 的快照日期。
+
 ## Method / 方法
 
 - Read each canonical repository README and public metadata; verify the main selection is not archived. / 读取官方仓库 README 与信息，并核对主清单未归档。
@@ -33,6 +35,7 @@ Reviewed: **2026-10-26**. Counts are a dated GitHub API snapshot, not a live ran
 | [Browser Use](https://github.com/browser-use/browser-use) | 119,143 | 2026-10-24T07:23:03Z | MIT | [Source](https://github.com/browser-use/browser-use/blob/main/README.md) |
 | [Stagehand](https://github.com/browserbase/stagehand) | 25,809 | 2026-10-23T23:57:42Z | MIT | [Source](https://github.com/browserbase/stagehand/blob/main/README.md) |
 | [Skyvern](https://github.com/Skyvern-AI/skyvern) | 23,276 | 2026-10-26T00:46:02Z | AGPL-3.0 | [Source](https://github.com/Skyvern-AI/skyvern/blob/main/README.md) |
+| [agent-qa](https://github.com/vostride/agent-qa) | 914 | 2026-10-31T22:58:51Z | NOASSERTION | [Source](https://github.com/vostride/agent-qa/blob/main/README.md) |
 | [faster-whisper](https://github.com/SYSTRAN/faster-whisper) | 26,141 | 2026-10-25T07:17:13Z | MIT | [Source](https://github.com/SYSTRAN/faster-whisper/blob/master/README.md) |
 | [WhisperX](https://github.com/m-bain/whisperX) | 24,846 | 2026-10-22T14:53:44Z | BSD-2-Clause | [Source](https://github.com/m-bain/whisperX/blob/main/README.md) |
 | [Meetily](https://github.com/Zackriya-Solutions/meetily) | 32,162 | 2026-10-24T10:35:27Z | MIT | [Source](https://github.com/Zackriya-Solutions/meetily/blob/main/README.md) |
@@ -58,6 +61,7 @@ Reviewed: **2026-10-26**. Counts are a dated GitHub API snapshot, not a live ran
 | Docling / WhisperX | Additional model downloads or terms can apply independently of code. / 模型下载与访问条款独立判断。 |
 | Meetily | Community and PRO differ; summary providers can be local or hosted. / 本地转写不等于所有纪要服务都在本地。 |
 | Presenton / Banana Slides / PPTAgent | Model, image and conversion dependencies vary. An editable export still requires inspection. / 生图、模型与格式转换要求不同。 |
+| agent-qa | [FSL-1.1-ALv2](https://vostride.com/license) restricts competing commercial offerings. Node.js 24+ and [model access](https://vostride.com/docs/agent-qa/configuration/models) are required; hosted inference costs are separate. / 许可限制竞争性商业产品或服务；需配置模型，托管推理费用另计。 |
 
 ## Excluded from the main selection / 本版未收录
 
