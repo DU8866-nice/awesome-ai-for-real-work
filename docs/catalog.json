@@ -470,6 +470,27 @@
       "review_level": "Primary README and metadata reviewed; application not runtime-tested"
     },
     {
+      "id": "agent-qa",
+      "name": "agent-qa",
+      "category": "browser-tasks",
+      "repository": "vostride/agent-qa",
+      "url": "https://github.com/vostride/agent-qa",
+      "interface": "Developer / CLI + MCP",
+      "interface_zh": "开发工具 / CLI + MCP",
+      "description": "Verify web, Android and iOS flows with memidex memory and evidence-gated self-improvement.",
+      "description_zh": "用 memidex 记忆和证据门控的自我改进能力验证 Web、Android 和 iOS 流程。",
+      "requirements": "Requires Node.js 24+ and model access; hosted inference costs are separate. Inspect step evidence and pass/fail verdicts. FSL-1.1-ALv2 restricts competing commercial offerings.",
+      "requirements_zh": "需 Node.js 24+ 和模型访问，托管推理费用另计。核对步骤证据与通过/失败结论。FSL-1.1-ALv2 限制竞争性商业产品或服务。",
+      "stars": 914,
+      "pushed_at": "2026-10-31T22:58:51Z",
+      "archived": false,
+      "license_spdx": "NOASSERTION",
+      "license_url": "https://vostride.com/license",
+      "reviewed_on": "2026-11-01",
+      "source": "https://github.com/vostride/agent-qa/blob/main/README.md",
+      "review_level": "Primary README, official documentation and metadata reviewed; application not runtime-tested"
+    },
+    {
       "id": "faster-whisper",
       "name": "faster-whisper",
       "category": "audio-to-actions",
